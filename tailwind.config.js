@@ -22,7 +22,17 @@ module.exports = {
       'green': '#139277',
       'red': '#c92a8f',
       'lightblue': '#8A9BCA',
+      'lightblue2': '#7b98c6',
       'blue': '#0C1B44',
+      'indigo': '#1e1666',
+      'aqua': '#00ffff',
+      'deepskyblue': '#00bfff',
+      'cornflowerblue': '#6495ed',
+      'mediumslateblue': '#7b68ee',
+      'giant': '#ac5652',
+      'rosequartzpink': '#c257a6',
+      'brilliantazure': '#359eff',
+      'freshair': '#b6ddff'
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],

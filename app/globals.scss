@@ -400,3 +400,39 @@ th:last-child {
   top: 0%;
   z-index: -1;
 }
+
+.diff-title{
+  @apply text-white text-3xl relative mb-8 uppercase;
+  &:before{
+    @apply absolute content-[''] h-[3px] w-[50px] bg-[#f11d66] bottom-[-5px];
+  }
+}
+.center-items{
+  @apply flex items-center justify-center;
+}
+.cms-title-sd{
+  text-shadow: 4px 4px #5797ff;
+}
+.cms-trader-title{
+  position: relative;
+  width: fit-content;
+  &::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    width: 3px;
+    height: 100%;
+    background-color: #00bfff;
+    transform: rotate(15deg);
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 66px;
+    height: 3px;
+    background-color: #00bfff;
+  }
+}

@@ -6,6 +6,11 @@ import Features from './components/Features/index';
 import Simple from './components/Simple/index';
 import Trade from './components/Trade/index';
 import Faq from './components/Faq/index';
+import ListDiff from './components/ListDiff';
+import WhyChooseUs from './components/WhyChooseUs';
+import TimeLine from './components/TimeLine';
+import Commission from './components/Commission';
+import TraderComission from './components/TraderComission';
 
 
 export default function Home() {
@@ -14,11 +19,16 @@ export default function Home() {
       <Banner />
       <Companies />
       <Work />
-      <Table />
+      <ListDiff />
+      <WhyChooseUs />
+      <TimeLine />
+      <Commission />
+      <TraderComission />
+      {/* <Table />
       <Features />
       <Simple />
       <Trade />
-      <Faq />
+      <Faq /> */}
     </main>
   )
 }
