@@ -131,19 +131,21 @@ html:not([data-scroll="0"]) .navbar {
 /* Work Section */
 
 .card-b {
-  background: #0C1B44;
+  /* background: #0C1B44; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid transparent;
   border-radius: 20px;
   position: relative;
   transition: transform 430ms;
-  height: 258px;
+  min-height: 269px;
+  /* height: 258px; */
 }
 
 .card-b:hover {
   filter: drop-shadow(0px 20px 5px rgba(0, 0, 0, 0.1));
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
   border: 1px solid #BD24DF;
-  height: 360px;
+  /* height: 360px; */
 }
 
 .hides {
@@ -157,7 +159,8 @@ html:not([data-scroll="0"]) .navbar {
 .work-img-bg {
   background: linear-gradient(90deg, #BD24DF 0%, #2D6ADE 97.15%);
   top: -51px;
-  right: 40%;
+  transform: translateX(-50%);
+  left: 50%;
 }
 
 /* Table Section */
