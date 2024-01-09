@@ -44,7 +44,7 @@ const TimeLine = () =>{
                 <h2 className="diff-title">
                     KHỞI ĐỘNG CÙNG BOT
                 </h2>
-                <div className="grid grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {
                         TimeLines.map((tl, i) => (
                             <div className={`pl-8 border-l-4 border-solid ${tl.borderColor}`} key={i}>

@@ -15,9 +15,9 @@ const TraderComission = () =>{
         <div>
             <div className="mx-auto max-w-7xl mt-16 px-6 mb-20 relative">
                 <h2 className="diff-title">
-                    HOA HỒNG GIAO DỊCH TỪ CÁC TRADER
+                    HOA HỒNG <span className="text-aqua"> GIAO DỊCH TỪ CÁC TRADER</span>
                 </h2>
-                <div className="grid grid-cols-6 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6  gap-8">
                     {
                         TraderCMS.map((t, i) => (
                             <div className="px-4" key={i}>

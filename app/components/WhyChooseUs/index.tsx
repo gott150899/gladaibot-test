@@ -45,12 +45,12 @@ const WhyChooseUs = () =>{
         <div>
             <div className="mx-auto max-w-7xl mt-16 px-6 mb-20 relative">
                 <h2 className="diff-title">
-                    TẠI SAO LẠI CHỌN <span className="text-deepskyblue">GLADAIBOT</span> 
+                    TẠI SAO LẠI CHỌN <span className="text-aqua">GLADAIBOT</span> 
                 </h2>
                 <p className="text-offwhite text-sm mt-4">
                     <span className="text-deepskyblue">GLADAIBOT</span> ra mắt với sứ mệnh cung cấp cho các nhà giao dịch và nhà đầu tư những trải nghiệm mới trong thị trường Games Ưu tiên của chúng tôi là cung cấp các dịch vụ  và hỗ trợ chất lượng cao nhất, bao gồm hoa  hồng hấp dẫn nhất từ Chương trình giới thiệu <span className="text-deepskyblue">GLADAIBOT</span>, các dịch vụ phân tích và hỗ trợ  khách hàng.
                 </p>
-                <div className="grid grid-cols-3 gap-8 mt-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                     {
                         WCS.map((w, i) => (
                             <div className="flex items-center gap-4 min-h-[72px]" key={i}>
@@ -60,7 +60,7 @@ const WhyChooseUs = () =>{
                         ))
                     }
                 </div>
-                <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <div className="flex flex-wrap justify-start sm:justify-center gap-4 mt-8">
                     {
                         WCSDesc.map((d, i) => (
                             <p className="text-[#e68aff]" key={i}>{d}</p>

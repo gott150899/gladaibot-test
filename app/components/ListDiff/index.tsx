@@ -31,15 +31,17 @@ const ListDiff = () =>{
     return (
         <div>
             <div className="mx-auto max-w-7xl mt-16 px-6 mb-20 relative">
-                <div className="flex">
-                    <div className="w-2/4 flex flex-col items-center">
-                        <h2 className="diff-title">
+                <div className="flex flex-col lg:flex-row items-center">
+
+                    <div className="w-full flex flex-col items-center lg:w-2/4">
+                        <h2 className="diff-title self-start">
                             SỰ KHÁC BIỆT ĐẾN TỪ <span className="text-aqua">SỨC MẠNH CỦA BLOCKCHAIN</span>
                         </h2>
-                        <p className="text-lightblue2 mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quod reiciendis labore explicabo, fugiat, modi dolorum sit nam eos magni enim architecto iste, laborum tempora! Deserunt expedita quo quia architecto.</p>
+                        <p className="text-lightblue2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quod reiciendis labore explicabo, fugiat, modi dolorum sit nam eos magni enim architecto iste, laborum tempora! Deserunt expedita quo quia architecto.</p>
                         <Image src="/images/Banner/pp-1-v2.png" alt="nothing" width={555} height={555} />
                     </div>
-                    <div className="w-2/4">
+
+                    <div className="w-full lg:w-2/4">
                         <div className="flex flex-wrap">
                             {
                                 diffs.map((diff, i) => (

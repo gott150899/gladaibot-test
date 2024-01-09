@@ -39,15 +39,20 @@ const footer = () => {
           {/* COLUMN-1 */}
 
           <div className='col-span-6'>
-            <img
+            <Image
               className="block h-12 w-20px mb-4"
               src={'/images/Logo/logo.svg'}
               alt="Crypto-Logo"
+              width={150}
+              height={48}
             />
             <h3 className='text-lightblue text-sm font-normal leading-9 mb-4 lg:mb-16'> Cryptocurrency is a type of virtual currency that uses cryptography to secure transactions that are digitally recorded on a distributed ledger, such as a blockchain.</h3>
             <div className='flex gap-4'>
               {socialLinks.map((items, i) => (
-                <Link href={items.href} key={i}><img src={items.imgsrc} alt={items.imgsrc} className='footer-icons' /></Link>
+                <Link href={items.href} key={i}>
+                  <Image src={items.imgsrc} alt={items.imgsrc} className='footer-icons' width={33} height={33} />
+                  {/* <img src={items.imgsrc} alt={items.imgsrc} className='footer-icons' /> */}
+                </Link>
               ))}
             </div>
           </div>

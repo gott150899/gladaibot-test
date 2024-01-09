@@ -36,7 +36,7 @@ const workdata: workdata[] = [
     {
         imgSrc: '/images/Work/icon-three.svg',
         heading: 'Tầm nhìn',
-        subheading: `GlADAIBOT xây dựng nên nền tảng BOTAI  ứng dụng phi tập trung được sở hữu bởi cộng đồng thu hút được những nhà phát triển game & người chơi tham gia xây dựng cộng đồng trong thế giới gamefi`,
+        subheading: `GLADAIBOT xây dựng nên nền tảng BOTAI  ứng dụng phi tập trung được sở hữu bởi cộng đồng thu hút được những nhà phát triển game & người chơi tham gia xây dựng cộng đồng trong thế giới gamefi`,
         hiddenpara: ``,
     },
 ]
@@ -52,7 +52,7 @@ const Work = () => {
                 </div>
                 <div className='flex flex-col gap-y-20 gap-x-5 mt-32'>
                     {workdata.map((items, i) => (
-                        <div className={`card-b p-8 w-4/5 ${i % 2 !== 0 ? 'ml-auto bg-navyblue' : 'bg-black'}`} key={i}>
+                        <div className={`card-b p-4 w-full md:w-4/5 md:p-8 ${i % 2 !== 0 ? 'ml-auto bg-navyblue' : 'bg-black'}`} key={i}>
                             <div className='work-img-bg rounded-full flex justify-center absolute p-6'>
                                 <Image src={items.imgSrc} alt={items.imgSrc} width={44} height={44} />
                             </div>
@@ -60,8 +60,10 @@ const Work = () => {
                                 <Image src={'/images/Work/bg-arrow.svg'} alt="arrow-bg" width={85} height={35} className={i % 2 !== 0 ? 'rotate-180 ml-auto' : ''} />
                             </div>
                             <h3 className='text-2xl text-offwhite font-semibold text-center mt-8'>{items.heading}</h3>
-                            <p className='text-base font-normal text-bluish text-center mt-2'>{items.subheading}</p>
-                            <span className="text-base font-normal m-0 text-bluish text-center">{items.hiddenpara}</span>
+                            <p className='text-base font-normal text-bluish mt-2'>{items.subheading}</p>
+                            {
+                                items.hiddenpara && <p className="text-base font-normal mt-4 text-bluish">{items.hiddenpara}</p>
+                            }
                         </div>
                     ))}
                 </div>

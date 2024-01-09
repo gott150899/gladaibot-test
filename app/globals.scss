@@ -383,9 +383,12 @@ th:last-child {
   border-radius: 508.5px;
   width: 78rem;
   height: 50rem;
-  left: 11%;
-  top: -12%;
+  // left: 11%;
+  // top: -12%;
+  left: 0;
+  top: 0;
   z-index: -2;
+  width: 100%;
 }
 
 .radial-bg {

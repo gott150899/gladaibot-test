@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
+import Image from "next/image";
 
 
 interface DrawerProps {
@@ -10,6 +11,24 @@ interface DrawerProps {
 }
 
 const Drawer = ({ children, isOpen, setIsOpen }: DrawerProps) => {
+    const menuRef = useRef<HTMLElement | null>(null);
+
+    useEffect(() =>{
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [])
+
+    const handleClickOutside = (event: Event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        //   console.log('Clicked outside the menu');
+            setIsOpen(false)
+        } else {
+            setIsOpen(true)
+        }
+    };
+
 
     return (
         <main
@@ -25,16 +44,19 @@ const Drawer = ({ children, isOpen, setIsOpen }: DrawerProps) => {
                     "w-340px max-w-sm left-0 gg h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform " +
                     (isOpen ? "translate-x-0" : "-translate-x-full")
                 }
+                ref={menuRef}
             >
 
                 <article className="relative w-340px max-w-lg pb-10 flex flex-col space-y-6 h-full">
                     <header className="px-4 py-4 flex items-center justify-between">
 
                         <div className="flex flex-shrink-0 items-center">
-                            <img
+                            <Image
                                 className="block h-10 lg:hidden"
                                 src={'/images/Logo/logo.svg'}
                                 alt="Crypto-Logo"
+                                width={125}
+                                height={40}
                             />
                         </div>
 

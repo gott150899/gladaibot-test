@@ -27,12 +27,11 @@ const Commission = () =>{
                 <h2 className="diff-title">
                     Thưởng hoa hồng khi tham gia cùng Bot
                 </h2>
-                <div className="grid grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     {
                         CMS.map((c, i) => (
                             <div className="flex gap-4" key={i}>
-                                <h1 className="text-8xl text-white italic cms-title-sd">{i + 1}</h1>
-                                {/* <Image src={c.imgUrl} alt="/" width={120} height={150} /> */}
+                                <h1 className="text-8xl text-white italic cms-title-sd w-[60px]">{i + 1}</h1>
                                 <p className="text-white pt-4 text-2xl">
                                     {
                                         c.text.split('|').map((t, j) => (
@@ -48,17 +47,6 @@ const Commission = () =>{
                             </div>
                         ))
                     }
-                    {/* <div className="flex gap-4">
-                        <Image src='/images/Commission/cms-2.png' alt="/" width={120} height={150} />
-                        <p className="text-white pt-4 text-2xl">
-                        30%F1 <br />
-                        20%F2 <br />
-                        15% F3 <br />
-                        10% F4 <br />
-                        6% F5-F7 <br />
-                        3% F8-F12
-                        </p>
-                    </div> */}
                 </div>
             </div>
         </div>
