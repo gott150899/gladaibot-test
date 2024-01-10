@@ -1,0 +1,81 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding:32px 0;
+    background: transparent;
+    transition: all .5s;
+    &.is-sticky, &.-menu-mb-active{
+    	padding:12px 0;
+    	background:#247EAA;
+    	box-shadow: 0 0 4px #227494;
+    }
+    &__btn{
+		font-weight: 900;
+		font-size: 13px;
+		line-height: 14px;
+    	border: 1px solid #FFFFFF;
+    	color: #fff;
+    	padding: 12px 30px;
+    	text-transform: uppercase;
+    	border-radius: 6px;
+    	transition: all .5s;
+    	&:not(:last-child){
+    		margin-right: 20px;
+    	}
+    	&:hover{
+    		color: #fff;
+    		box-shadow: 0 0 12px #fff;
+    	}
+    }
+	.logo{
+		padding: 0;
+		margin-bottom: 0;
+		a{
+			display: flex;
+			align-items:center;
+			justify-content: center;
+		}
+		img{
+			max-height: 64px;
+		}
+	}
+	@media (max-width: 1399px){
+		&__btn:not(:last-child) {
+		    margin-right: 10px;
+		}
+	}
+	@media (max-width: 1199px){
+		top: 0;
+		padding:14px 0;
+		.logo{
+			img{
+				max-height: 32px;
+			}
+		}
+		&__group{
+			margin-left: auto;
+			margin-right: 30px;
+		}
+		&__btn {
+		    padding: 8px 20px;
+		}
+	}
+	@media (max-width: 991px){
+		&.is-sticky, &.-menu-mb-active{
+    		padding:14px 0;
+    	}
+		&__btn {
+		    flex: 0 0 auto;
+		    flex-grow: 1;
+		    text-align: center;
+		}
+	}
+
+}
+@keyframes stuckMoveDown{
+    0%{transform:translateY(-100%)}
+    100%{transform:translateY(0)}
+}

@@ -32,7 +32,8 @@ module.exports = {
       'giant': '#ac5652',
       'rosequartzpink': '#c257a6',
       'brilliantazure': '#359eff',
-      'freshair': '#b6ddff'
+      'freshair': '#b6ddff',
+      'darkCerulean': '#0b506b'
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],

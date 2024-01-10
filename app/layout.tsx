@@ -2,7 +2,8 @@ import './globals.scss';
 import '@/node_modules/react-modal-video/scss/modal-video.scss';
 import Navbar from './components/Navbar/index';
 import Footer from './components/Footer/index';
-
+import AppProviderContainer from './providers/AppProviderContainer';
+// import '../public/assets/css/main.css'
 
 export const metadata = {
   title: 'CrCrypto',
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <AppProviderContainer>
+          {/* <Navbar /> */}
+          {children}
+          {/* <Footer /> */}
+        </AppProviderContainer>
       </body>
     </html>
   )

@@ -1,0 +1,31 @@
+export interface GetUserInfoData {
+    firstName: string;
+    lastName: string;
+    email: string;
+    username: string;
+    parentCode: string;
+    refCodeLeft: string;
+    refCodeRight: string;
+    refRevenue: number;
+    totalCommission: number;
+    totalBonus: number;
+    totalInterest: number;
+    totalRevenueLeft: number;
+    totalRevenueRight: number;
+    totalDeposit: number;
+    totalWithdraw: number;
+    available: number;
+    freeze: number;
+    userBrand: number;
+    walletAddress: string;
+    userId: string;
+    id: number;
+    flag?: any;
+    created: string;
+    updated: string;
+    avatar?: string;
+    identityCardFront?: string;
+    identityCardBack?: string;
+    identityVerify?: boolean;
+    role: string;
+}

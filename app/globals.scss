@@ -5,6 +5,9 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
+@import url(/assets/css/bootstrap.min.css);
+@import url(/assets/css/main.css);
+@import url(/assets/fonts/icomoon/style.css);
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -16,6 +19,10 @@ body {
 
 html {
   scroll-behavior: smooth !important;
+}
+
+input{
+  outline: none;
 }
 
 html:not([data-scroll="0"]) .navbar {
@@ -438,4 +445,13 @@ th:last-child {
     height: 3px;
     background-color: #00bfff;
   }
+}
+
+
+
+// auth layout
+.bg-login{
+  background: url(/assets/img/login-bg.jpg);
+  background-size: cover;
+  background-position: center;
 }
