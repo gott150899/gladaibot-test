@@ -42,16 +42,12 @@ import {
   VerifyEmailRes
 } from './models';
 
+const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT + '';
+console.log('NEXT_PUBLIC_API_ENDPOINT:::::::', API_ENDPOINT)
+
 export const forgotPasswordApi = async (props: ForgotProps) => {
   const { email } = props;
-  const data: ForgotPassRes = (
-    await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Account/ForgotPassword`,
-      {
-        email,
-      }
-    )
-  ).data;
+  const data: ForgotPassRes = ( await globalAxios.post( `${API_ENDPOINT}/Account/ForgotPassword`, { email, } ) ).data;
   return data;
 };
 
@@ -59,7 +55,7 @@ export const resetPassword = async (props: ResetProps) => {
   const { email, password, confirmPassword, code } = props;
   const data: ResetRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Account/ResetPassword`,
+      `${API_ENDPOINT}/Account/ResetPassword`,
       {
         email,
         password,
@@ -83,7 +79,7 @@ export const updateInfo = async (
   const data: UpdateInfoRes = (
     await globalAxios({
       method: 'post',
-      url: `${(process.env.API_ENDPOINT + '').replace(
+      url: `${(API_ENDPOINT + '').replace(
         'testnet',
         ''
       )}/Account/UploadFiles`,
@@ -98,7 +94,7 @@ export const loginApi = async (props: LoginProps) => {
   const { email, password } = props;
   const data: LoginRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Account/Login`,
+      `${API_ENDPOINT}/Account/Login`,
       {
         email,
         password,
@@ -120,7 +116,7 @@ export const signupApi = async (props: SignupProps) => {
   } = props;
   const data: SignupRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Account/Register`,
+      `${API_ENDPOINT}/Account/Register`,
       {
         email,
         password,
@@ -137,9 +133,11 @@ export const signupApi = async (props: SignupProps) => {
 };
 
 export const getUserInfoApi = async () => {
+  // console.log('API_ENDPOINT----------------', process.env.API_ENDPOINT)
+  // console.log('API_ENDPOINT----------------', API_ENDPOINT)
   const data: GetUserInfoRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/Account/GetUserInfo`
+      `${API_ENDPOINT}/Account/GetUserInfo`
     )
   ).data;
   return data;
@@ -148,7 +146,7 @@ export const getUserInfoApi = async () => {
 export const verifyEmailApi = async (emailToken: string, email: string) => {
   const data: VerifyEmailRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/Account/ConfirmEmailRegister?email=${email}&token=${emailToken}`
     )
   ).data;
@@ -158,7 +156,7 @@ export const verifyEmailApi = async (emailToken: string, email: string) => {
 export const resendVerifyEmailApi = async (email: string) => {
   const data: ResendVerifyEmailRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/Account/ResendMailRegister?email=${email}`
     )
   ).data;
@@ -168,7 +166,7 @@ export const resendVerifyEmailApi = async (email: string) => {
 export const getCustomerInfoApi = async (userId: number) => {
   const data: GetCustomerInfoRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/Customer/GetCustomerInfo/${userId}`
+      `${API_ENDPOINT}/Customer/GetCustomerInfo/${userId}`
     )
   ).data;
   return data;
@@ -176,14 +174,14 @@ export const getCustomerInfoApi = async (userId: number) => {
 
 export const getProgramSavingApi = async () => {
   const data: GetProgramSavingRes = (
-    await globalAxios.get(`${process.env.API_ENDPOINT}/ProgramSaving`)
+    await globalAxios.get(`${API_ENDPOINT}/ProgramSaving`)
   ).data;
   return data;
 };
 
 export const getProgramsApi = async () => {
   const data: GetProgramsRes = (
-    await globalAxios.get(`${process.env.API_ENDPOINT}/admin/Programs`)
+    await globalAxios.get(`${API_ENDPOINT}/admin/Programs`)
   ).data;
   return data;
 }
@@ -192,7 +190,7 @@ export const updateFlagProgramApi = async (id: number, originFlag: 'D' | '') => 
   const newFlag = originFlag === 'D' ? null : 'D';
 
   const data: DisableProgramsRes = (
-    await globalAxios.patch(`${process.env.API_ENDPOINT}/admin/UpdateFlagProgram/${id}`,
+    await globalAxios.patch(`${API_ENDPOINT}/admin/UpdateFlagProgram/${id}`,
       { flag: newFlag })
   ).data;
   return data;
@@ -200,14 +198,14 @@ export const updateFlagProgramApi = async (id: number, originFlag: 'D' | '') => 
 
 export const getProgramApi = async (id: number) => {
   const data: GetProgramRes = (
-    await globalAxios.get(`${process.env.API_ENDPOINT}/admin/Programs/${id}`)
+    await globalAxios.get(`${API_ENDPOINT}/admin/Programs/${id}`)
   ).data;
   return data;
 }
 
 export const getReStakingApi = async () => {
   const data: GetReStakingRes = (
-    await globalAxios.get(`${process.env.API_ENDPOINT}/Customer/GetCustomerReStaking`)
+    await globalAxios.get(`${API_ENDPOINT}/Customer/GetCustomerReStaking`)
   ).data;
   return data;
 }
@@ -215,7 +213,7 @@ export const getReStakingApi = async () => {
 export const createProgramApi = async (program: any) => {
   const data: CreateProgramRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/admin/CreateProgram`,
+      `${API_ENDPOINT}/admin/CreateProgram`,
       program
     )
   ).data;
@@ -225,7 +223,7 @@ export const createProgramApi = async (program: any) => {
 export const updateProgramApi = async (id: number, program: any) => {
   const data: UpdateProgramRes = (
     await globalAxios.patch(
-      `${process.env.API_ENDPOINT}/admin/UpdateProgram/${id}`,
+      `${API_ENDPOINT}/admin/UpdateProgram/${id}`,
       program
     )
   ).data;
@@ -241,7 +239,7 @@ export const getTransactionApi = async (
 
   const data: GetTransactionRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/Transaction/GetTransactionFromAddress?address=${walletAddress}` +
       typeFilter
     )
@@ -255,7 +253,7 @@ export const getTransactionInterestAndCommisionFromAddressApi = async (
 ) => {
   const data: GetTransactionRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/Transaction/getTransactionInterestAndCommisionFromAddress?address=${walletAddress}`
     )
   ).data;
@@ -268,7 +266,7 @@ export const getTransactionRequestApi = async (types: string[] = []) => {
 
   const data: GetTransactionRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/Transaction/GetTransactionAddressRequest` + typeFilter
     )
   ).data;
@@ -281,7 +279,7 @@ export const lockUserApi = async (
 ): Promise<LockUserRes | undefined> => {
   const data: LockUserRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/admin/userLock`,
+      `${API_ENDPOINT}/admin/userLock`,
       {
         userId,
         lock,
@@ -301,7 +299,7 @@ export const getUsersApi = async (
 
   const data: GetUsersRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/admin/users` + typeFilter
+      `${API_ENDPOINT}/admin/users` + typeFilter
     )
   ).data;
 
@@ -313,7 +311,7 @@ export const getUserApi = async (
 ): Promise<GetUserRes | undefined> => {
   const data: GetUserRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/admin/users/${query}`
+      `${API_ENDPOINT}/admin/users/${query}`
     )
   ).data;
 
@@ -353,7 +351,7 @@ export const updateUserProfileApi = async (
   const data: UserProfileRes | undefined = (
     await globalAxios({
       method: 'post',
-      url: `${process.env.API_ENDPOINT}/admin/UpdateUserProfile`,
+      url: `${API_ENDPOINT}/admin/UpdateUserProfile`,
       data: bodyFormData,
     })
   ).data;
@@ -376,7 +374,7 @@ export const createTransactionApi = async (props: CreateTransactionProps) => {
   };
   const data: CreateTransactionRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Transaction`,
+      `${API_ENDPOINT}/Transaction`,
       requestData
     )
   ).data;
@@ -388,7 +386,7 @@ export const createTransferApi = async (props: CreateTransferProps) => {
   const { amount, fromAddress, toAddress, otp } = props;
   const data: SignupRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Transaction/Transfer?otp=${otp}`,
+      `${API_ENDPOINT}/Transaction/Transfer?otp=${otp}`,
       {
         amount,
         addressPayment: fromAddress,
@@ -405,7 +403,7 @@ export const sentOtpTransferApi = async (props: CreateTransferProps) => {
   const { amount, fromAddress, toAddress } = props;
   const data: SignupRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Transaction/SendOtpTransfer`,
+      `${API_ENDPOINT}/Transaction/SendOtpTransfer`,
       {
         amount,
         addressPayment: fromAddress,
@@ -421,7 +419,7 @@ export const sentOtpTransferApi = async (props: CreateTransferProps) => {
 export const getUserNetworkApi = async (userId: number) => {
   const data: GetUserNetworkRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/Customer/CustomerNetwork/${userId}`
+      `${API_ENDPOINT}/Customer/CustomerNetwork/${userId}`
     )
   ).data;
   return data;
@@ -430,7 +428,7 @@ export const getUserNetworkApi = async (userId: number) => {
 export const getUserNetworkApiV2 = async (userId: number) => {
   const data: GetUserNetworkRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/Customer/CustomerNetworkV2/${userId}`
+      `${API_ENDPOINT}/Customer/CustomerNetworkV2/${userId}`
     )
   ).data;
   return data;
@@ -442,7 +440,7 @@ export const createFullCustomerProgramingApi = async (
   const { programId, customerId, amount, daysLock } = props;
   const data: SignupRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/CustomerProgram/FullStaking${daysLock > 0 ? ('?daysLock=' + daysLock) : ''}`,
+      `${API_ENDPOINT}/CustomerProgram/FullStaking${daysLock > 0 ? ('?daysLock=' + daysLock) : ''}`,
       {
         programId,
         amount,
@@ -461,7 +459,7 @@ export const createPartialCustomerProgramingApi = async (
   const { programId, customerId, amount } = props;
   const data: SignupRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/CustomerProgram/PartialStaking`,
+      `${API_ENDPOINT}/CustomerProgram/PartialStaking`,
       {
         programId,
         amount,
@@ -477,7 +475,7 @@ export const createPartialCustomerProgramingApi = async (
 export const userClaimInterestApi = async (userId: number) => {
   const data: UserClaimInterestRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/Customer/ClaimInterest/${userId}`
+      `${API_ENDPOINT}/Customer/ClaimInterest/${userId}`
     )
   ).data;
   return data;
@@ -486,7 +484,7 @@ export const userClaimInterestApi = async (userId: number) => {
 export const cancelStakingApi = async (customerProgramId: number) => {
   const data: CancelStakingRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/CustomerProgram/CancelStaking/${customerProgramId}`
     )
   ).data;
@@ -496,7 +494,7 @@ export const cancelStakingApi = async (customerProgramId: number) => {
 export const cancelWithdrawRequestApi = async (transactionId: number) => {
   const data: CancelRequestWithdrawRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/Transaction/CancelRequestWithdraw/${transactionId}`
     )
   ).data;
@@ -506,7 +504,7 @@ export const cancelWithdrawRequestApi = async (transactionId: number) => {
 export const getCustomerProgramApi = async (userId: number) => {
   const data: CustomerProgramRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT}/CustomerProgram/${userId}`
+      `${API_ENDPOINT}/CustomerProgram/${userId}`
     )
   ).data;
   return data;
@@ -515,7 +513,7 @@ export const getCustomerProgramApi = async (userId: number) => {
 export const updateInterestRateApi = async (userId: number, interestRate: number) => {
   const data: UpdateInterestRateRes = (
     await globalAxios.patch(
-      `${process.env.API_ENDPOINT}/admin/interestRate/${userId}`,
+      `${API_ENDPOINT}/admin/interestRate/${userId}`,
       {
         interestRate
       }
@@ -530,7 +528,7 @@ export const depositAmountToUserApi = async (
   const { userIds, amount } = props;
   const data: DepositAmountToUserRes = (
     await globalAxios.post(
-      `${process.env.API_ENDPOINT}/Admin/PayAmountToUser`,
+      `${API_ENDPOINT}/Admin/PayAmountToUser`,
       {
         userIds,
         amount,
@@ -543,7 +541,7 @@ export const depositAmountToUserApi = async (
 export const getCustomerLowLevel = async (userId: number) => {
   const data: GetCustomerLowLevelRes = (
     await globalAxios.get(
-      `${process.env.API_ENDPOINT
+      `${API_ENDPOINT
       }/Customer/GetCustomerLowlevel/${userId}`
     )
   ).data;
@@ -552,7 +550,7 @@ export const getCustomerLowLevel = async (userId: number) => {
 
 export const getRevenueInMonth = async () => {
   const data: number = (
-    await globalAxios.get(`${process.env.API_ENDPOINT}/Customer/GetRevenueInMonth`)
+    await globalAxios.get(`${API_ENDPOINT}/Customer/GetRevenueInMonth`)
   ).data.data;
   return data;
 };

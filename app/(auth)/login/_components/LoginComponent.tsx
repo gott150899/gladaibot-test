@@ -1,12 +1,13 @@
 'use client'
 
 import { useForm } from "react-hook-form";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "@/app/providers/appContext";
-import { loginApi } from "@/app/utils/apis";
+import { getUserInfoApi, loginApi } from "@/app/utils/apis";
 import { CircularProgress } from "@mui/material";
 import Link from "next/link";
 import styled from 'styled-components';
+import { useRouter } from "next/navigation";
 
 const Wrapper = styled.div`
   .wpuf-submit-button {
@@ -21,9 +22,29 @@ interface FormData {
 }
 
 const LoginComponent = () =>{
+    const router = useRouter()
     const { register, handleSubmit, reset, formState: { errors }, } = useForm<FormData>();
     const { setToken, setToast } = useContext(AppContext);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() =>{
+      const detectUserLogged = async () =>{
+        const removeToken = () =>{
+          localStorage.removeItem('access_token')
+        }
+        try{
+          const resp = await getUserInfoApi()
+          if(resp.success){
+            router.push('/')
+            return;
+          }
+          removeToken()
+        }catch{
+          removeToken()
+        }
+      }
+      detectUserLogged()
+    }, [router])
 
     const callSignup = async (formData: FormData) => {
         try {

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,7 +31,7 @@ const socialLinks: Social[] = [
 ]
 
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className=" relative">
       <div className="radial-bg hidden lg:block"></div>
@@ -92,4 +94,4 @@ const footer = () => {
   )
 }
 
-export default footer;
+export default Footer;

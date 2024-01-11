@@ -6,6 +6,16 @@ const getCancelToken = () => axios.CancelToken;
 
 const globalAxios = axios.create();
 
+globalAxios.interceptors.request.use(config =>{
+  if(config.headers){
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      config.headers.Authorization = 'Bearer ' + token;
+    }
+  }
+  return config
+})
+
 // globalAxios.defaults.baseURL = process.env.REACT_APP_BACKEND;
 // globalAxios.defaults.timeout = 10000;
 // globalAxios.defaults.withCredentials = true;

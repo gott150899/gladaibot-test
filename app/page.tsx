@@ -11,24 +11,30 @@ import WhyChooseUs from './components/WhyChooseUs';
 import TimeLine from './components/TimeLine';
 import Commission from './components/Commission';
 import TraderComission from './components/TraderComission';
+import Navbar from './components/Navbar/index';
+import Footer from './components/Footer/index';
 
 
 export default function Home() {
   return (
-    <main>
-      <Banner />
-      <Companies />
-      <Work />
-      <ListDiff />
-      <WhyChooseUs />
-      <TimeLine />
-      <Commission />
-      <TraderComission />
-      {/* <Table />
-      <Features />
-      <Simple />
-      <Trade />
-      <Faq /> */}
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Banner />
+        <Companies />
+        <Work />
+        <ListDiff />
+        <WhyChooseUs />
+        <TimeLine />
+        <Commission />
+        <TraderComission />
+        {/* <Table />
+        <Features />
+        <Simple />
+        <Trade />
+        <Faq /> */}
+      </main>
+      <Footer />
+    </>
   )
 }

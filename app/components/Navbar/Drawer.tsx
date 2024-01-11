@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode, useEffect, useRef } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
