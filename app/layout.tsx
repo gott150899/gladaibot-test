@@ -1,9 +1,12 @@
-import './globals.scss';
 import '@/node_modules/react-modal-video/scss/modal-video.scss';
 import Navbar from './components/Navbar/index';
 import Footer from './components/Footer/index';
 import AppProviderContainer from './providers/AppProviderContainer';
 // import '../public/assets/css/main.css'
+import './globals.scss';
+import '../public/assets/css/bootstrap.min.css'
+import '../public/assets/css/main.css'
+import '../public/assets/fonts/icomoon/style.css'
 
 export const metadata = {
   title: 'CrCrypto',
